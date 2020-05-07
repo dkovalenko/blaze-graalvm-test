@@ -6,9 +6,8 @@ ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
-  .enablePlugins(GraalVMNativeImagePlugin)
   .settings(
-    name := "Scala Seed Project",
+    name := "blaze-graal-ni-test",
     libraryDependencies += scalaTest % Test,
     libraryDependencies ++= Seq(
       "org.http4s"                %% "http4s-blaze-core"      % "0.21.4",
@@ -29,9 +28,6 @@ scalacOptions ++= Seq(
   //  "-Xfatal-warnings"
 )
 
-//uncomment this to build native-image inside docker
-// graalVMNativeImageGraalVersion := Some("20.0.0")
-graalVMNativeImageOptions ++= Seq("--no-fallback")
 
 
 Global / autoStartServer := false
